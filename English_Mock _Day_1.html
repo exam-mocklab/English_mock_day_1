@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Language Mock Test  Day 1 - Bilingual</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;color:#15191d;background:#fff}
+body{overflow:auto}
+:root{
+ --navy:#4169e1;--navy2:#214c67;--teal:#05c8a4;--green:#32cd32;--red:#ff0000;
+ --purple:#805fa4;--bluegray:#8e9cbd;--pale:#eaf5fb;--line:#d4d9de
+}
+.top{height:62px;background:#4169e1;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 21px}
+.brand{display:flex;align-items:center;gap:16px;min-width:0}.mocklogo{height:38px;background:#fff;color:#243e58;border-radius:5px;display:flex;align-items:center;padding:0 8px;font-size:17px;white-space:nowrap}.mocklogo b{background:#233f5b;color:#fff;padding:2px 6px;margin-left:4px;font-size:18px}.title{font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topright{display:flex;align-items:center;gap:16px}.time{background:#28556d;border-radius:3px;padding:9px 12px;font-size:17px;white-space:nowrap}.time strong{background:#315f77;padding:3px 6px;border-radius:3px;margin-left:5px;letter-spacing:1px}.pause{color:#ffffff;font-size:16px;font-weight:700;cursor:pointer;white-space:nowrap}
+.app{min-height:calc(100vh - 110px);display:grid;grid-template-columns:minmax(0,1fr) 377px}
+.main{min-width:0;display:flex;flex-direction:column;min-height:580px;position:relative}
+.questionhead{height:64px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px 0 21px}.qtitle{font-weight:700}.headright{display:flex;align-items:center;gap:25px}.view{font-size:14px}.view select{height:29px;border:1px solid #aaa;background:#fff;padding:2px 22px 2px 7px}
+.work{display:grid;grid-template-columns:50% 50%;min-height:520px;flex:1}.pane{min-width:0;overflow:auto}.leftpane{border-right:1px solid #e0e3e6;padding:16px 21px 70px;position:sticky;top:0;height:calc(100vh - 176px)}.rightpane{padding:16px 17px 70px}
+.question{font-size:17px;line-height:1.5}.dir{font-weight:700;color:#333999;margin-bottom:8px}.question p{margin:8px 0;white-space:pre-line}.prompt{font-size:17px;line-height:1.45;margin-bottom:22px;font-weight:600}.option{display:flex;align-items:center;gap:10px;margin:14px 0;font-size:15px;cursor:pointer}.option input{width:17px;height:17px;margin:0}
+.bottom{height:54px;background:var(--pale);border-top:1px solid #cbd7df;display:flex;align-items:center;justify-content:space-between;padding:0 31px;position:sticky;bottom:0;z-index:3}.bottomleft{display:flex;gap:7px}.btn{border:0;border-radius:4px;color:#fff;font-size:13px;font-weight:700;padding:9px 14px;cursor:pointer}.reviewbtn{background:#333399}.clearbtn{background:#333399}.savebtn{background:#333399}
+.side{border-left:1px solid #cfd5d9;background:#fff;display:flex;flex-direction:column;position:relative;min-width:0}.hello{padding:12px 18px 6px;font-size:18px}.summary{padding:4px 17px 8px;display:grid;grid-template-columns:repeat(4,1fr);gap:7px;text-align:center;font-size:12px}.bubble{display:inline-grid;place-items:center;min-width:37px;height:26px;border-radius:17px;background:#32cd32;color:#fff;padding:0 9px}.purple{background:#7d5da1}.square{background:#d3d3d3;border:1px solid #bbb;border-radius:2px;color:#333}.naRow{padding:0 17px 8px;font-size:13px}.naBox{display:inline-grid;place-items:center;background:#ff0000;color:#fff;font-weight:700;border-radius:2px;padding:4px 8px;margin-right:6px}.sect{padding:8px 18px;background:#f2f4f7;border-top:1px solid #e0e3e7;border-bottom:1px solid #e0e3e7;font-size:14px}
+.palette{padding:10px 22px;display:grid;grid-template-columns:repeat(5,1fr);gap:7px;align-content:start}.pbtn{height:29px;border:1px solid #bbb;background:#d3d3d3;font-size:13px;color:#333;cursor:pointer}.pbtn.current{background:#4169e1;color:#fff;border-color:#4169e1;border-radius:14px}.pbtn.unanswered{background:#ff0000;color:#fff;border-color:#ff0000}.pbtn.answered{background:#32cd32;color:#fff;border-color:#32cd32}.pbtn.review{background:#7e5ea3;color:#fff;border-color:#6e4f90}.pbtn.ar{background:#7e5ea3;color:#fff;box-shadow:inset 0 -5px 0 #32cd32}
+.sidebottom{margin-top:auto;border-top:1px solid #d9dde1;background:#fafafa;padding:8px 18px}.twobtn{display:grid;grid-template-columns:1fr 1fr;gap:14px}.sidebtn{height:35px;border:0;border-radius:3px;background:#94a2c1;color:#fff;font-weight:700;cursor:pointer}.submitbtn{width:100%;height:35px;margin-top:7px;border:0;border-radius:3px;background:#333399;color:#fff;font-weight:700;cursor:pointer}
+.arrow{position:absolute;left:-23px;top:278px;width:23px;height:69px;background:#1c4b65;color:#fff;display:grid;place-items:center;font-size:32px;border-radius:4px 0 0 4px}.tiny{font-size:10px;color:#888;text-align:center;padding-top:5px}
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);align-items:center;justify-content:center;z-index:20}.modalbox{width:min(480px,92vw);background:#fff;border-radius:5px;padding:22px;box-shadow:0 12px 40px rgba(0,0,0,.25)}.modalactions{display:flex;justify-content:flex-end;gap:9px}.modalactions button{border:0;border-radius:3px;padding:9px 15px;font-weight:700}.cancel{background:#333399;color:#fff}.confirm{background:#32cd32;color:#fff}
+.analysis{display:none;position:absolute;inset:0;background:#fff;z-index:10;overflow:auto;padding:22px}.analysis h2{margin:0 0 8px;color:#3942bf}.scoregrid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:16px 0}.sc{border:1px solid #d5dbe0;background:#f8fafb;padding:10px;text-align:center;border-radius:4px}.sc b{display:block;font-size:21px;margin-bottom:4px}.correct{color:#32cd32}.wrong{color:#ff0000}.neutral{color:#566778}.analysis table{border-collapse:collapse;width:100%;font-size:13px;margin-bottom:20px}.analysis th,.analysis td{border:1px solid #d2d7db;padding:8px;text-align:left;vertical-align:top}.analysis th{background:#f1f4f7}.pill{display:inline-block;padding:3px 7px;border-radius:10px;font-size:11px;font-weight:700}.pill.c{background:#e7f5ec;color:#227947}.pill.w{background:#fdebe5;color:#ff0000}.pill.n{background:#eef2f5;color:#53616d}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{display:none}.work{grid-template-columns:1fr}.leftpane{display:none}.title{font-size:14px}.topright{gap:8px}.pause{font-size:13px}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><div class="mocklogo">PRACTICE <b>MOCK</b></div><div class="title" id="testTitle">English Language Mock Test  Day 1</div></div>
+  <div class="topright"><div class="time">Time Remaining <strong id="timer">20 : 00</strong></div><div class="pause" id="pause">Start Test</div></div>
+</header>
+
+<div class="app">
+<main class="main">
+  <div class="questionhead">
+    <div class="qtitle">Question No. <span id="qno">1</span></div>
+    <div class="headright">
+      <div class="view">View in: <select id="langSelect"><option value="en">English</option><option value="hi">Hindi</option></select></div>
+    </div>
+  </div>
+
+  <div class="work">
+    <div class="pane leftpane" id="leftPane"></div>
+    <div class="pane rightpane" id="rightPane"></div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottomleft">
+      <button class="btn reviewbtn" id="reviewNext">MARK FOR REVIEW &amp; NEXT</button>
+      <button class="btn clearbtn" id="clear">CLEAR RESPONSE</button>
+    </div>
+    <div style="display:flex;gap:7px;">
+      <button class="btn savebtn" id="prevBtn">PREVIOUS</button>
+      <button class="btn savebtn" id="saveNext">SAVE &amp; NEXT</button>
+    </div>
+  </div>
+
+  <section class="analysis" id="analysis">
+    <h2>Detailed Answer &amp; Section-Wise Performance Analysis</h2>
+    <div class="small">English Mock Analysis (+1 for Correct, −0.25 for Wrong).</div>
+    
+    <div class="scoregrid">
+      <div class="sc"><b id="ascore">0</b>Score</div>
+      <div class="sc correct"><b id="acorrect">0</b>Correct</div>
+      <div class="sc wrong"><b id="awrong">0</b>Wrong</div>
+      <div class="sc neutral"><b id="askip">0</b>Unattempted</div>
+      <div class="sc"><b id="accuracy">0%</b>Accuracy</div>
+    </div>
+
+    <h3 style="margin-top:20px;color:#214c67;">Individual Question Solutions &amp; Audit Breakdown</h3>
+    <div style="margin:10px 0 12px;display:flex;gap:8px"><button class="btn savebtn" id="resetFromAnalysis">RESET TEST</button></div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width:45px">Q</th>
+          <th>Time Taken</th>
+          <th>Question</th>
+          <th>Your Answer</th>
+          <th>Correct Answer</th>
+          <th>Result</th>
+          <th>Explanation</th>
+        </tr>
+      </thead>
+      <tbody id="analysisBody"></tbody>
+    </table>
+  </section>
+</main>
+
+<aside class="side">
+  <div class="hello">Hello, Candidate</div>
+  <div class="summary">
+    <div><span class="bubble" id="sAns">0</span><div>Answered</div></div>
+    <div><span class="bubble purple" id="sMark">0</span><div>Marked</div></div>
+    <div><span class="bubble square" id="sVisit">30</span><div>Not Visited</div></div>
+    <div><span class="bubble purple" id="sAR">0✓</span><div>Marked & Ans</div></div>
+  </div>
+  <div class="naRow"><span class="naBox" id="sNA">30</span> Not Answered</div>
+  <div class="sect">Section: &nbsp;<b id="currentSectionName">English Language</b></div>
+  <div class="palette" id="palette"></div>
+  <div class="sidebottom">
+    <div class="twobtn"><button class="sidebtn" id="qpBtn">QUESTION PAPER</button><button class="sidebtn" id="instBtn">INSTRUCTIONS</button></div>
+    <button class="submitbtn" id="submit">SUBMIT TEST</button>
+    <div class="tiny">Full-Length Banking Exam Interface</div>
+  </div>
+  <div class="arrow">›</div>
+</aside>
+</div>
+
+<div class="modal" id="modal"><div class="modalbox"><h2>Submit Test?</h2><p id="modalText"></p><div class="modalactions"><button class="cancel" id="cancel">CANCEL</button><button class="confirm" id="confirm">SUBMIT</button></div></div></div>
+
+<script>
+const sections = [
+  { name: "English Language", start: 0, end: 29 }
+];
+
+const Q = [
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q1. According to the passage, what has been a direct outcome of the shift towards digital first banking channels?",
+    "q_hi": "प्र 1. गद्यांश के अनुसार, डिजिटल-प्रथम बैंकिंग चैनलों की ओर बदलाव का प्रत्यक्ष परिणाम क्या रहा है?",
+    "o": ["Increase in branch operational costs", "Complete elimination of physical bank branches", "Enhanced customer convenience and reduced operational costs", "Reduction in mobile banking applications", "Decline in total retail customers"],
+    "o_hi": ["शाखा परिचालन लागत में वृद्धि", "भौतिक बैंक शाखाओं का पूर्ण उन्मूलन", "बढ़ी हुई ग्राहक सुविधा और कम परिचालन लागत", "मोबाइल बैंकिंग अनुप्रयोगों में कमी", "कुल खुदरा ग्राहकों में गिरावट"],
+    "a": 2,
+    "x": "Correct Answer: (C) Enhanced customer convenience and reduced operational costs"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q2. Why are rural and semi urban populations more susceptible to cyber frauds according to the text?",
+    "q_hi": "प्र 2. पाठ के अनुसार ग्रामीण और अर्ध-शहरी आबादी साइबर धोखाधड़ी के प्रति अधिक संवेदनशील क्यों है?",
+    "o": ["Banks refuse to open branches in those areas.", "They lack adequate financial literacy and digital awareness.", "Mobile networks do not function properly in semi urban areas.", "RBI has excluded them from security campaigns.", "Digital transactions are banned in rural regions."],
+    "o_hi": ["बैंक उन क्षेत्रों में शाखाएं खोलने से इनकार करते हैं।", "उनमें पर्याप्त वित्तीय साक्षरता और डिजिटल जागरूकता की कमी है।", "अर्ध-शहरी क्षेत्रों में मोबाइल नेटवर्क ठीक से काम नहीं करते हैं।", "RBI ने उन्हें सुरक्षा अभियानों से बाहर कर दिया है।", "ग्रामीण क्षेत्रों में डिजिटल लेनदेन प्रतिबंधित हैं।"],
+    "a": 1,
+    "x": "Correct Answer: (B) They lack adequate financial literacy and digital awareness."
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q3. Which of the following words is MOST SIMILAR in meaning to the word VULNERABLE as highlighted in the passage?",
+    "q_hi": "प्र 3. गद्यांश में दिए गए शब्द VULNERABLE का सबसे समान अर्थ वाला शब्द कौन सा है?",
+    "o": ["Protected", "Susceptible", "Resilient", "Immune", "Guarded"],
+    "o_hi": ["Protected", "Susceptible", "Resilient", "Immune", "Guarded"],
+    "a": 1,
+    "x": "Correct Answer: (B) Susceptible"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q4. Which of the following words is MOST OPPOSITE in meaning to the word MANDATED as highlighted in the passage?",
+    "q_hi": "प्र 4. गद्यांश में दिए गए शब्द MANDATED का सबसे विपरीत अर्थ वाला शब्द कौन सा है?",
+    "o": ["Enacted", "Ordered", "Prohibited", "Decreed", "Compulsory"],
+    "o_hi": ["Enacted", "Ordered", "Prohibited", "Decreed", "Compulsory"],
+    "a": 2,
+    "x": "Correct Answer: (C) Prohibited"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q5. Which of the following words can replace MITIGATE in the passage without changing its contextual meaning?",
+    "q_hi": "प्र 5. संदर्भगत अर्थ बदले बिना गद्यांश में MITIGATE को कौन सा शब्द प्रतिस्थापित कर सकता है?",
+    "o": ["Aggravate", "Alleviate", "Intensify", "Exacerbate", "Escalate"],
+    "o_hi": ["Aggravate", "Alleviate", "Intensify", "Exacerbate", "Escalate"],
+    "a": 1,
+    "x": "Correct Answer: (B) Alleviate"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q6. According to the passage context, banks must focus creating secure interfaces to foster trust. Which preposition fits correctly?",
+    "q_hi": "प्र 6. गद्यांश के संदर्भ के अनुसार, बैंकों को विश्वास बढ़ाने के लिए सुरक्षित इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। कौन सा पूर्वसर्ग सही बैठता है?",
+    "o": ["in", "at", "on", "with", "for"],
+    "o_hi": ["in", "at", "on", "with", "for"],
+    "a": 2,
+    "x": "Correct Answer: (C) on"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q7. What is the primary theme of the passage?",
+    "q_hi": "प्र 7. गद्यांश का प्राथमिक विषय क्या है?",
+    "o": ["The complete failure of traditional banking in India", "The history of commercial banks in rural regions", "Growth, challenges, and security needs of digital banking in India", "Cybersecurity measures used strictly by foreign banks", "The financial impact of closing physical branches"],
+    "o_hi": ["भारत में पारंपरिक बैंकिंग की पूर्ण असफलता", "ग्रामीण क्षेत्रों में वाणिज्यिक बैंकों का इतिहास", "भारत में डिजिटल बैंकिंग का विकास, चुनौतियां और सुरक्षा जरूरतें", "विदेशी बैंकों द्वारा सख्ती से उपयोग किए जाने वाले साइबर सुरक्षा उपाय", "भौतिक शाखाओं को बंद करने का वित्तीय प्रभाव"],
+    "a": 2,
+    "x": "Correct Answer: (C) Growth, challenges, and security needs of digital banking in India"
+  },
+  {
+    "sec": 0,
+    "stem": "Reading Comprehension",
+    "stem_hi": "पठन बोध (Reading Comprehension)",
+    "body": "Digital banking in India has undergone a massive transformation over the past decade. The introduction of Unified Payments Interface (UPI) and the widespread adoption of mobile banking applications have fundamentally altered how retail customers interact with financial institutions. Traditional branch banking, which was once the primary touchpoint for account holders, is rapidly giving way to digital first channels. This shift has not only enhanced convenience for consumers by enabling round the clock transactions, but it has also significantly reduced operational costs for commercial banks.\n\nHowever, this rapid transition towards digital finance presents a unique set of challenges. As online transactions surge, instances of cyber fraud, phishing attacks, and unauthorized transactions have escalated proportionally. Rural and semi urban populations, which often lack financial literacy and digital awareness, remain particularly vulnerable to these security threats. Financial regulators, including the Reserve Bank of India, have consequently mandated strict security protocols, such as two factor authentication and regular customer awareness campaigns, to mitigate potential risks.\n\nTo achieve true financial inclusion, banks must focus on creating secure, user friendly digital interfaces while simultaneously expanding their digital literacy initiatives. Balancing technological innovation with robust cybersecurity measures will be critical in sustaining consumer trust and fostering long term economic growth.",
+    "body_hi": "भारत में डिजिटल बैंकिंग पिछले एक दशक में एक बड़े बदलाव से गुजरी है। एकीकृत भुगतान इंटरफेस (UPI) की शुरुआत और मोबाइल बैंकिंग एप्लिकेशन को व्यापक रूप से अपनाने से खुदरा ग्राहकों के वित्तीय संस्थानों के साथ जुड़ने का तरीका मौलिक रूप से बदल गया है। पारंपरिक शाखा बैंकिंग, जो कभी खाताधारकों के लिए प्राथमिक संपर्क बिंदु हुआ करती थी, तेजी से डिजिटल-प्रथम चैनलों को रास्ता दे रही है। इस बदलाव से न केवल उपभोक्ताओं के लिए चौबीसों घंटे लेनदेन को सक्षम करके सुविधा बढ़ी है, बल्कि इससे वाणिज्यिक बैंकों के लिए परिचालन लागत भी काफी कम हुई है।\n\nहालाँकि, डिजिटल वित्त की ओर यह तीव्र परिवर्तन चुनौतियों का एक अनूठा सेट प्रस्तुत करता है। जैसे-जैसे ऑनलाइन लेनदेन बढ़ते हैं, साइबर धोखाधड़ी, फ़िशिंग हमलों और अनधिकृत लेनदेन की घटनाएं आनुपातिक रूप से बढ़ गई हैं। ग्रामीण और अर्ध-शहरी आबादी, जिनमें अक्सर वित्तीय साक्षरता और डिजिटल जागरूकता की कमी होती है, इन सुरक्षा खतरों के प्रति विशेष रूप से संवेदनशील बनी हुई है। भारतीय रिजर्व बैंक सहित वित्तीय नियामकों ने परिणामфस्वरूप संभावित जोखिमों को कम करने के लिए दो-कारक प्रमाणीकरण और नियमित ग्राहक जागरूकता अभियानों जैसे कड़े सुरक्षा प्रोटोकॉल अनिवार्य कर दिए हैं।\n\nसच्ची वित्तीय समावेशन प्राप्त करने के लिए, बैंकों को अपने डिजिटल साक्षरता पहल का विस्तार करते हुए सुरक्षित, उपयोगकर्ता के अनुकूल डिजिटल इंटरफेस बनाने पर ध्यान केंद्रित करना चाहिए। मजबूत साइबर सुरक्षा उपायों के साथ तकनीकी नवाचार को संतुलित करना उपभोक्ता विश्वास को बनाए रखने और दीर्घकालिक आर्थिक विकास को बढ़ावा देने में महत्वपूर्ण होगा।",
+    "q": "Q8. Based on the passage, which of the following statements is TRUE?",
+    "q_hi": "प्र 8. गद्यांश के आधार पर, निम्नलिखित में से कौन सा कथन सत्य है?",
+    "o": ["RBI has discouraged customer awareness campaigns.", "Online transactions have completely stopped cyber fraud.", "Traditional branch banking is the only touchpoint used today.", "Two factor authentication is a regulatory security measure.", "Operational costs have increased due to UPI adoption."],
+    "o_hi": ["RBI ने ग्राहक जागरूकता अभियानों को हतोत्साहित किया है।", "ऑनलाइन लेनदेन ने साइबर धोखाधड़ी को पूरी तरह से रोक दिया है।", "पारंपरिक शाखा बैंकिंग आज इस्तेमाल होने वाला एकमात्र संपर्क बिंदु है।", "दो-कारक प्रमाणीकरण एक विनियामक सुरक्षा उपाय है।", "UPI को अपनाने के कारण परिचालन लागत बढ़ गई है।"],
+    "a": 3,
+    "x": "Correct Answer: (D) Two factor authentication is a regulatory security measure."
+  },
+  {
+    "sec": 0,
+    "stem": "Error Spotting",
+    "stem_hi": "त्रुटि पहचान (Error Spotting)",
+    "body": "Identify the error in the given sentence parts.",
+    "body_hi": "दिए गए वाक्य के भागों में त्रुटि पहचानें।",
+    "q": "Q9. Find the error part in the sentence: Neither the branch manager / nor the assistant cashiers / was present in the bank / during the audit inspection. / No Error",
+    "q_hi": "प्र 9. वाक्य में त्रुटि वाला भाग ढूंढें: Neither the branch manager / nor the assistant cashiers / was present in the bank / during the audit inspection. / No Error",
+    "o": ["Neither the branch manager", "nor the assistant cashiers", "was present in the bank", "during the audit inspection.", "No Error"],
+    "o_hi": ["Neither the branch manager", "nor the assistant cashiers", "was present in the bank", "during the audit inspection.", "No Error"],
+    "a": 2,
+    "x": "Correct Answer: (C) was present in the bank (Should be 'were present' as verb agrees with nearest plural subject 'assistant cashiers')"
+  },
+  {
+    "sec": 0,
+    "stem": "Error Spotting",
+    "stem_hi": "त्रुटि पहचान (Error Spotting)",
+    "body": "Identify the error in the given sentence parts.",
+    "body_hi": "दिए गए वाक्य के भागों में त्रुटि पहचानें।",
+    "q": "Q10. Find the error part in the sentence: The company has launched / a new scheme which is / more superior than the / previous financial policy. / No Error",
+    "q_hi": "प्र 10. वाक्य में त्रुटि वाला भाग ढूंढें: The company has launched / a new scheme which is / more superior than the / previous financial policy. / No Error",
+    "o": ["The company has launched", "a new scheme which is", "more superior than the", "previous financial policy.", "No Error"],
+    "o_hi": ["The company has launched", "a new scheme which is", "more superior than the", "previous financial policy.", "No Error"],
+    "a": 2,
+    "x": "Correct Answer: (C) more superior than the ('Superior' takes preposition 'to', not 'than', and avoids 'more')"
+  },
+  {
+    "sec": 0,
+    "stem": "Error Spotting",
+    "stem_hi": "त्रुटि पहचान (Error Spotting)",
+    "body": "Identify the error in the given sentence parts.",
+    "body_hi": "दिए गए वाक्य के भागों में त्रुटि पहचानें।",
+    "q": "Q11. Find the error part in the sentence: Scarcely had the clerk / entered the manager cabin / than the telephone rang / continuously for five minutes. / No Error",
+    "q_hi": "प्र 11. वाक्य में त्रुटि वाला भाग ढूंढें: Scarcely had the clerk / entered the manager cabin / than the telephone rang / continuously for five minutes. / No Error",
+    "o": ["Scarcely had the clerk", "entered the manager cabin", "than the telephone rang", "continuously for five minutes.", "No Error"],
+    "o_hi": ["Scarcely had the clerk", "entered the manager cabin", "than the telephone rang", "continuously for five minutes.", "No Error"],
+    "a": 2,
+    "x": "Correct Answer: (C) than the telephone rang (Scarcely/Hardly takes conjunction 'when', not 'than')"
+  },
+  {
+    "sec": 0,
+    "stem": "Error Spotting",
+    "stem_hi": "त्रुटि पहचान (Error Spotting)",
+    "body": "Identify the error in the given sentence parts.",
+    "body_hi": "दिए गए वाक्य के भागों में त्रुटि पहचानें।",
+    "q": "Q12. Find the error part in the sentence: She is one of the / most dedicated officers who / has cleared the competitive examination / in the first attempt. / No Error",
+    "q_hi": "प्र 12. वाक्य में त्रुटि वाला भाग ढूंढें: She is one of the / most dedicated officers who / has cleared the competitive examination / in the first attempt. / No Error",
+    "o": ["She is one of the", "most dedicated officers who", "has cleared the competitive examination", "in the first attempt.", "No Error"],
+    "o_hi": ["She is one of the", "most dedicated officers who", "has cleared the competitive examination", "in the first attempt.", "No Error"],
+    "a": 2,
+    "x": "Correct Answer: (C) has cleared the competitive examination (Antecedent 'officers' is plural, so relative pronoun takes plural verb 'have cleared')"
+  },
+  {
+    "sec": 0,
+    "stem": "Error Spotting",
+    "stem_hi": "त्रुटि पहचान (Error Spotting)",
+    "body": "Identify the error in the given sentence parts.",
+    "body_hi": "दिए गए वाक्य के भागों में त्रुटि पहचानें।",
+    "q": "Q13. Find the error part in the sentence: The customer refrained / to share his OTP / despite repeated requests from / the unknown caller. / No Error",
+    "q_hi": "प्र 13. वाक्य में त्रुटि वाला भाग ढूंढें: The customer refrained / to share his OTP / despite repeated requests from / the unknown caller. / No Error",
+    "o": ["The customer refrained", "to share his OTP", "despite repeated requests from", "the unknown caller.", "No Error"],
+    "o_hi": ["The customer refrained", "to share his OTP", "despite repeated requests from", "the unknown caller.", "No Error"],
+    "a": 1,
+    "x": "Correct Answer: (B) to share his OTP ('Refrain' takes fixed preposition composition 'from sharing', not 'to share')"
+  },
+  {
+    "sec": 0,
+    "stem": "Sentence Improvement",
+    "stem_hi": "वाक्य सुधार (Sentence Improvement)",
+    "body": "If the government had implemented the policy on time, the agricultural sector would not suffer such huge losses.",
+    "body_hi": "यदि सरकार ने समय पर नीति लागू की होती, तो कृषि क्षेत्र को इतने भारी नुकसान का सामना नहीं करना पड़ता।",
+    "q": "Q14. Improve the bracketed/underlined part if required: 'would not suffer such huge losses'",
+    "q_hi": "प्र 14. यदि आवश्यक हो तो रेखांकित भाग में सुधार करें: 'would not suffer such huge losses'",
+    "o": ["implemented the policy on time", "has implemented the policy on time", "had implemented the policy on time, the agricultural sector would not have suffered", "will implement the policy on time", "No correction required"],
+    "o_hi": ["implemented the policy on time", "has implemented the policy on time", "had implemented the policy on time, the agricultural sector would not have suffered", "will implement the policy on time", "No correction required"],
+    "a": 2,
+    "x": "Correct Answer: (C) had implemented the policy on time, the agricultural sector would not have suffered (Conditional Type 3: Had + V3 ... would have + V3)"
+  },
+  {
+    "sec": 0,
+    "stem": "Sentence Improvement",
+    "stem_hi": "वाक्य सुधार (Sentence Improvement)",
+    "body": "The committee is divided in their opinions regarding the allocation of the annual budget.",
+    "body_hi": "वार्षिक बजट के आवंटन के संबंध में समिति अपनी राय में विभाजित है।",
+    "q": "Q15. Improve the sentence part: 'is divided in their opinions'",
+    "q_hi": "प्र 15. वाक्य के भाग में सुधार करें: 'is divided in their opinions'",
+    "o": ["is divided in its opinions", "are divided in their opinions", "was divided in its opinion", "has divided in their opinions", "No correction required"],
+    "o_hi": ["is divided in its opinions", "are divided in their opinions", "was divided in its opinion", "has divided in their opinions", "No correction required"],
+    "a": 1,
+    "x": "Correct Answer: (B) are divided in their opinions (Collective noun acting individually takes plural verb and plural pronoun)"
+  },
+  {
+    "sec": 0,
+    "stem": "Sentence Improvement",
+    "stem_hi": "वाक्य सुधार (Sentence Improvement)",
+    "body": "He is used to work late into the night during the month end accounting closing.",
+    "body_hi": "वह महीने के अंत में लेखांकन समापन के दौरान रात में देर तक काम करने का आदी है।",
+    "q": "Q16. Improve the sentence part: 'is used to work'",
+    "q_hi": "प्र 16. वाक्य के भाग में सुधार करें: 'is used to work'",
+    "o": ["is used to working", "used to working", "is use to work", "was used to work", "No correction required"],
+    "o_hi": ["is used to working", "used to working", "is use to work", "was used to work", "No correction required"],
+    "a": 0,
+    "x": "Correct Answer: (A) is used to working (Structure: Be + used to + V1+ing for habitual action)"
+  },
+  {
+    "sec": 0,
+    "stem": "Sentence Improvement",
+    "stem_hi": "वाक्य सुधार (Sentence Improvement)",
+    "body": "The new software is so complex that it cannot be understood by non technical staff without training.",
+    "body_hi": "नया सॉफ्टवेयर इतना जटिल है कि इसे बिना प्रशिक्षण के गैर-तकनीकी कर्मचारियों द्वारा समझा नहीं जा सकता है।",
+    "q": "Q17. Improve the sentence part if needed: 'is so complex that it cannot be understood by'",
+    "q_hi": "प्र 17. यदि आवश्यक हो तो वाक्य के भाग में सुधार करें: 'is so complex that it cannot be understood by'",
+    "o": ["too complex that it cannot be understood by", "so complex for being understood by", "complex enough that it cannot be understood by", "so complex to be understood by", "No correction required"],
+    "o_hi": ["too complex that it cannot be understood by", "so complex for being understood by", "complex enough that it cannot be understood by", "so complex to be understood by", "No correction required"],
+    "a": 4,
+    "x": "Correct Answer: (E) No correction required (Structure: 'so...that + subject + cannot' is grammatically correct)"
+  },
+  {
+    "sec": 0,
+    "stem": "Para Jumble (Rearrangement)",
+    "stem_hi": "पैरा जंबल (पुनर्व्यवस्था)",
+    "body": "Rearrange the following sentences (A, B, C, D, E) to form a meaningful paragraph:\n(A) Consequently, central banks around the world started raising interest rates to curb rising inflation.\n(B) However, rapid rate hikes also created fears of a potential economic slowdown in emerging markets.\n(C) Global financial markets experienced severe volatility during the last fiscal year.\n(D) This turmoil was primarily triggered by supply chain disruptions and geopolitical tensions.\n(E) Therefore, policymakers are now aiming for a delicate balance between price stability and economic growth.",
+    "body_hi": "एक सार्थक अनुच्छेद बनाने के लिए निम्नलिखित वाक्यों (A, B, C, D, E) को पुनर्व्यवस्थित करें:\n(A) परिणामस्वरूप, बढ़ती मुद्रास्फीति को रोकने के लिए दुनिया भर के केंद्रीय बैंकों ने ब्याज दरें बढ़ाना शुरू कर दिया।\n(B) हालांकि, तेजी से दरों में बढ़ोतरी ने उभरते बाजारों में संभावित आर्थिक मंदी की आशंकाओं को भी पैदा कर दिया।\n(C) पिछले वित्तीय वर्ष के दौरान वैश्विक वित्तीय बाजारों में भारी उतार-चढ़ाव देखा गया।\n(D) यह उथल-पुथल मुख्य रूप से आपूर्ति श्रृंखला व्यवधानों और भू-राजनीतिक तनावों के कारण शुरू हुई थी।\n(E) इसलिए, नीति निर्माता अब मूल्य स्थिरता और आर्थिक विकास के बीच एक नाजुक संतुलन का लक्ष्य रख रहे हैं।",
+    "q": "Q18. Which of the following should be the FIRST sentence after rearrangement?",
+    "q_hi": "प्र 18. पुनर्व्यवस्था के बाद निम्नलिखित में से कौन सा पहला वाक्य होना चाहिए?",
+    "o": ["A", "B", "C", "D", "E"],
+    "o_hi": ["A", "B", "C", "D", "E"],
+    "a": 2,
+    "x": "Correct Answer: (C) C"
+  },
+  {
+    "sec": 0,
+    "stem": "Para Jumble (Rearrangement)",
+    "stem_hi": "पैरा जंबल (पुनर्व्यवस्था)",
+    "body": "Rearrange the following sentences (A, B, C, D, E) to form a meaningful paragraph:\n(A) Consequently, central banks around the world started raising interest rates to curb rising inflation.\n(B) However, rapid rate hikes also created fears of a potential economic slowdown in emerging markets.\n(C) Global financial markets experienced severe volatility during the last fiscal year.\n(D) This turmoil was primarily triggered by supply chain disruptions and geopolitical tensions.\n(E) Therefore, policymakers are now aiming for a delicate balance between price stability and economic growth.",
+    "body_hi": "एक सार्थक अनुच्छेद बनाने के लिए निम्नलिखित वाक्यों (A, B, C, D, E) को पुनर्व्यवस्थित करें:\n(A) परिणामस्वरूप, बढ़ती मुद्रास्फीति को रोकने के लिए दुनिया भर के केंद्रीय बैंकों ने ब्याज दरें बढ़ाना शुरू कर दिया।\n(B) हालांकि, तेजी से दरों में बढ़ोतरी ने उभरते बाजारों में संभावित आर्थिक मंदी की आशंकाओं को भी पैदा कर दिया।\n(C) पिछले वित्तीय वर्ष के दौरान वैश्विक वित्तीय बाजारों में भारी उतार-चढ़ाव देखा गया।\n(D) यह उथल-पुथल मुख्य रूप से आपूर्ति श्रृंखला व्यवधानों और भू-राजनीतिक तनावों के कारण शुरू हुई थी।\n(E) इसलिए, नीति निर्माता अब मूल्य स्थिरता और आर्थिक विकास के बीच एक नाजुक संतुलन का लक्ष्य रख रहे हैं।",
+    "q": "Q19. Which of the following should be the SECOND sentence after rearrangement?",
+    "q_hi": "प्र 19. पुनर्व्यवस्था के बाद निम्नलिखित में से कौन सा दूसरा वाक्य होना चाहिए?",
+    "o": ["A", "B", "C", "D", "E"],
+    "o_hi": ["A", "B", "C", "D", "E"],
+    "a": 3,
+    "x": "Correct Answer: (D) D"
+  },
+  {
+    "sec": 0,
+    "stem": "Para Jumble (Rearrangement)",
+    "stem_hi": "पैरा जंबल (पुनर्व्यवस्था)",
+    "body": "Rearrange the following sentences (A, B, C, D, E) to form a meaningful paragraph:\n(A) Consequently, central banks around the world started raising interest rates to curb rising inflation.\n(B) However, rapid rate hikes also created fears of a potential economic slowdown in emerging markets.\n(C) Global financial markets experienced severe volatility during the last fiscal year.\n(D) This turmoil was primarily triggered by supply chain disruptions and geopolitical tensions.\n(E) Therefore, policymakers are now aiming for a delicate balance between price stability and economic growth.",
+    "body_hi": "एक सार्थक अनुच्छेद बनाने के लिए निम्नलिखित वाक्यों (A, B, C, D, E) को पुनर्व्यवस्थित करें:\n(A) परिणामस्वरूप, बढ़ती मुद्रास्फीति को रोकने के लिए दुनिया भर के केंद्रीय बैंकों ने ब्याज दरें बढ़ाना शुरू कर दिया।\n(B) हालांकि, तेजी से दरों में बढ़ोतरी ने उभरते बाजारों में संभावित आर्थिक मंदी की आशंकाओं को भी पैदा कर दिया।\n(C) पिछले वित्तीय वर्ष के दौरान वैश्विक वित्तीय बाजारों में भारी उतार-चढ़ाव देखा गया।\n(D) यह उथल-पुथल मुख्य रूप से आपूर्ति श्रृंखला व्यवधानों और भू-राजनीतिक तनावों के कारण शुरू हुई थी।\n(E) इसलिए, नीति निर्माता अब मूल्य स्थिरता और आर्थिक विकास के बीच एक नाजुक संतुलन का लक्ष्य रख रहे हैं।",
+    "q": "Q20. Which of the following should be the THIRD sentence after rearrangement?",
+    "q_hi": "प्र 20. पुनर्व्यवस्था के बाद निम्नलिखित में से कौन सा तीसरा वाक्य होना चाहिए?",
+    "o": ["A", "B", "C", "D", "E"],
+    "o_hi": ["A", "B", "C", "D", "E"],
+    "a": 0,
+    "x": "Correct Answer: (A) A"
+  },
+  {
+    "sec": 0,
+    "stem": "Para Jumble (Rearrangement)",
+    "stem_hi": "पैरा जंबल (पुनर्व्यवस्था)",
+    "body": "Rearrange the following sentences (A, B, C, D, E) to form a meaningful paragraph:\n(A) Consequently, central banks around the world started raising interest rates to curb rising inflation.\n(B) However, rapid rate hikes also created fears of a potential economic slowdown in emerging markets.\n(C) Global financial markets experienced severe volatility during the last fiscal year.\n(D) This turmoil was primarily triggered by supply chain disruptions and geopolitical tensions.\n(E) Therefore, policymakers are now aiming for a delicate balance between price stability and economic growth.",
+    "body_hi": "एक सार्थक अनुच्छेद बनाने के लिए निम्नलिखित वाक्यों (A, B, C, D, E) को पुनर्व्यवस्थित करें:\n(A) परिणामस्वरूप, बढ़ती मुद्रास्फीति को रोकने के लिए दुनिया भर के केंद्रीय बैंकों ने ब्याज दरें बढ़ाना शुरू कर दिया।\n(B) हालांकि, तेजी से दरों में बढ़ोतरी ने उभरते बाजारों में संभावित आर्थिक मंदी की आशंकाओं को भी पैदा कर दिया।\n(C) पिछले वित्तीय वर्ष के दौरान वैश्विक वित्तीय बाजारों में भारी उतार-चढ़ाव देखा गया।\n(D) यह उथल-पुथल मुख्य रूप से आपूर्ति श्रृंखला व्यवधानों और भू-राजनीतिक तनावों के कारण शुरू हुई थी।\n(E) इसलिए, नीति निर्माता अब मूल्य स्थिरता और आर्थिक विकास के बीच एक नाजुक संतुलन का लक्ष्य रख रहे हैं।",
+    "q": "Q21. Which of the following should be the FOURTH sentence after rearrangement?",
+    "q_hi": "प्र 21. पुनर्व्यवस्था के बाद निम्नलिखित में से कौन सा चौथा वाक्य होना चाहिए?",
+    "o": ["A", "B", "C", "D", "E"],
+    "o_hi": ["A", "B", "C", "D", "E"],
+    "a": 1,
+    "x": "Correct Answer: (B) B"
+  },
+  {
+    "sec": 0,
+    "stem": "Para Jumble (Rearrangement)",
+    "stem_hi": "पैरा जंबल (पुनर्व्यवस्था)",
+    "body": "Rearrange the following sentences (A, B, C, D, E) to form a meaningful paragraph:\n(A) Consequently, central banks around the world started raising interest rates to curb rising inflation.\n(B) However, rapid rate hikes also created fears of a potential economic slowdown in emerging markets.\n(C) Global financial markets experienced severe volatility during the last fiscal year.\n(D) This turmoil was primarily triggered by supply chain disruptions and geopolitical tensions.\n(E) Therefore, policymakers are now aiming for a delicate balance between price stability and economic growth.",
+    "body_hi": "एक सार्थक अनुच्छेद बनाने के लिए निम्नलिखित वाक्यों (A, B, C, D, E) को पुनर्व्यवस्थित करें:\n(A) परिणामस्वरूप, बढ़ती मुद्रास्फीति को रोकने के लिए दुनिया भर के केंद्रीय बैंकों ने ब्याज दरें बढ़ाना शुरू कर दिया।\n(B) हालांकि, तेजी से दरों में बढ़ोतरी ने उभरते बाजारों में संभावित आर्थिक मंदी की आशंकाओं को भी पैदा कर दिया।\n(C) पिछले वित्तीय वर्ष के दौरान वैश्विक वित्तीय बाजारों में भारी उतार-चढ़ाव देखा गया।\n(D) यह उथल-पुथल मुख्य रूप से आपूर्ति श्रृंखला व्यवधानों और भू-राजनीतिक तनावों के कारण शुरू हुई थी।\n(E) इसलिए, नीति निर्माता अब मूल्य स्थिरता और आर्थिक विकास के बीच एक नाजुक संतुलन का लक्ष्य रख रहे हैं।",
+    "q": "Q22. Which of the following should be the FIFTH (LAST) sentence after rearrangement?",
+    "q_hi": "प्र 22. पुनर्व्यवस्था के बाद निम्नलिखित में से कौन सा पाँचवाँ (अंतिम) वाक्य होना चाहिए?",
+    "o": ["A", "B", "C", "D", "E"],
+    "o_hi": ["A", "B", "C", "D", "E"],
+    "a": 4,
+    "x": "Correct Answer: (E) E"
+  },
+  {
+    "sec": 0,
+    "stem": "Vocabulary & Fill in the Blanks",
+    "stem_hi": "शब्दावली और रिक्त स्थान भरें",
+    "body": "Choose the most appropriate word to fill in the blank.",
+    "body_hi": "रिक्त स्थान भरने के लिए सबसे उपयुक्त शब्द चुनें।",
+    "q": "Q23. High inflation steadily _____ the purchasing power of middle class households, making daily budgeting increasingly difficult.",
+    "q_hi": "प्र 23. उच्च मुद्रास्फीति लगातार मध्यम वर्ग के परिवारों की क्रय शक्ति को _____ है, जिससे दैनिक बजट बनाना तेजी से मुश्किल हो जाता है।",
+    "o": ["erodes", "enhances", "elevates", "protects", "restores"],
+    "o_hi": ["erodes", "enhances", "elevates", "protects", "restores"],
+    "a": 0,
+    "x": "Correct Answer: (A) erodes (Erode = gradually destroy/reduce purchasing power)"
+  },
+  {
+    "sec": 0,
+    "stem": "Vocabulary & Fill in the Blanks",
+    "stem_hi": "शब्दावली और रिक्त स्थान भरें",
+    "body": "Choose the most appropriate word to fill in the blank.",
+    "body_hi": "रिक्त स्थान भरने के लिए सबसे उपयुक्त शब्द चुनें।",
+    "q": "Q24. Amidst economic uncertainty, the central bank advised commercial lenders to _____ unnecessary credit expansion.",
+    "q_hi": "प्र 24. आर्थिक अनिश्चितता के बीच, केंद्रीय बैंक ने वाणिज्यिक ऋणदाताओं को अनावश्यक क्रेडिट विस्तार को _____ करने की सलाह दी।",
+    "o": ["expand", "curtail", "amplify", "augment", "flourish"],
+    "o_hi": ["expand", "curtail", "amplify", "augment", "flourish"],
+    "a": 1,
+    "x": "Correct Answer: (B) curtail (Curtail = reduce/cut down spending)"
+  },
+  {
+    "sec": 0,
+    "stem": "Vocabulary & Fill in the Blanks",
+    "stem_hi": "शब्दावली और रिक्त स्थान भरें",
+    "body": "Choose the most appropriate word to fill in the blank.",
+    "body_hi": "रिक्त स्थान भरने के लिए सबसे उपयुक्त शब्द चुनें।",
+    "q": "Q25. Financial institutions must proactively _____ emerging risks associated with digital lending platforms.",
+    "q_hi": "प्र 25. वित्तीय संस्थानों को डिजिटल ऋण देने वाले प्लेटफार्मों से जुड़े उभरते जोखिमों को सक्रिय रूप से _____ करना चाहिए।",
+    "o": ["aggravate", "ignore", "tackle", "worsen", "neglect"],
+    "o_hi": ["aggravate", "ignore", "tackle", "worsen", "neglect"],
+    "a": 2,
+    "x": "Correct Answer: (C) tackle (Tackle = address/deal with a problem)"
+  },
+  {
+    "sec": 0,
+    "stem": "Vocabulary & Fill in the Blanks",
+    "stem_hi": "शब्दावली और रिक्त स्थान भरें",
+    "body": "Choose the most appropriate word to fill in the blank.",
+    "body_hi": "रिक्त स्थान भरने के लिए सबसे उपयुक्त शब्द चुनें।",
+    "q": "Q26. Banks were instructed to _____ policy rate cuts effectively to retail borrowers without undue delay.",
+    "q_hi": "प्र 26. बैंकों को बिना किसी देरी के खुदरा उधारकर्ताओं तक नीतिगत दर में कटौती को प्रभावी ढंग से _____ करने का निर्देश दिया गया था।",
+    "o": ["withhold", "transmit", "suppress", "conceal", "withdraw"],
+    "o_hi": ["withhold", "transmit", "suppress", "conceal", "withdraw"],
+    "a": 1,
+    "x": "Correct Answer: (B) transmit (Transmit = pass on interest rate changes to customers)"
+  },
+  {
+    "sec": 0,
+    "stem": "Vocabulary & Fill in the Blanks",
+    "stem_hi": "शब्दावली और रिक्त स्थान भरें",
+    "body": "Choose the most appropriate word to fill in the blank.",
+    "body_hi": "रिक्त स्थान भरने के लिए सबसे उपयुक्त शब्द चुनें।",
+    "q": "Q27. Adopting a _____ approach towards debt management ensures long term financial stability for individuals.",
+    "q_hi": "प्र 27. ऋण प्रबंधन के प्रति एक _____ दृष्टिकोण अपनाना व्यक्तियों के लिए दीर्घकालिक वित्तीय स्थिरता सुनिश्चित करता है।",
+    "o": ["reckless", "prudent", "hasty", "negligent", "arbitrary"],
+    "o_hi": ["reckless", "prudent", "hasty", "negligent", "arbitrary"],
+    "a": 1,
+    "x": "Correct Answer: (B) prudent (Prudent = wise, cautious, sensible financial approach)"
+  },
+  {
+    "sec": 0,
+    "stem": "Grammar & Fillers",
+    "stem_hi": "व्याकरण और फिलर्स",
+    "body": "Choose the correct pair of words to fill in the blanks.",
+    "body_hi": "रिक्त स्थान भरने के लिए शब्दों का सही युग्म चुनें।",
+    "q": "Q28. The candidate was _____ about her success in the interview, as she had prepared _____ for all technical sections.",
+    "q_hi": "प्र 28. उम्मीदवार साक्षात्कार में अपनी सफलता के बारे में _____ थी, क्योंकि उसने सभी तकनीकी अनुभागों के लिए _____ तैयारी की थी।",
+    "o": ["confident, thoroughly", "doubtful, meticulously", "hesitant, casually", "indifferent, deeply", "anxious, poorly"],
+    "o_hi": ["confident, thoroughly", "doubtful, meticulously", "hesitant, casually", "indifferent, deeply", "anxious, poorly"],
+    "a": 0,
+    "x": "Correct Answer: (A) confident, thoroughly"
+  },
+  {
+    "sec": 0,
+    "stem": "Grammar & Fillers",
+    "stem_hi": "व्याकरण और फिलर्स",
+    "body": "Choose the correct pair of prepositions to fill in the blanks.",
+    "body_hi": "रिक्त स्थान भरने के लिए पूर्वसर्गों का सही युग्म चुनें।",
+    "q": "Q29. The bank manager insisted _____ verifying the original documents before abiding _____ the loan agreement terms.",
+    "q_hi": "प्र 29. बैंक प्रबंधक ने ऋण समझौते की शर्तों का पालन करने से पहले मूल दस्तावेजों को सत्यापित करने पर जोर दिया।",
+    "o": ["at, with", "on, by", "in, to", "for, from", "upon, for"],
+    "o_hi": ["at, with", "on, by", "in, to", "for, from", "upon, for"],
+    "a": 1,
+    "x": "Correct Answer: (B) on, by (Fixed Preposition Compositions: Insist ON, Abide BY)"
+  },
+  {
+    "sec": 0,
+    "stem": "Grammar & Fillers",
+    "stem_hi": "व्याकरण और फिलर्स",
+    "body": "Choose the correct pair of prepositions to fill in the blanks.",
+    "body_hi": "रिक्त स्थान भरने के लिए पूर्वसर्गों का सही युग्म चुनें।",
+    "q": "Q30. Heavy stress is detrimental _____ employee productivity, whereas regular breaks are beneficial _____ overall well being.",
+    "q_hi": "प्र 30. भारी तनाव कर्मचारी उत्पादकता के लिए _____ है, जबकि नियमित विश्राम समग्र कल्याण के लिए _____ है।",
+    "o": ["for, to", "to, for", "to, to", "with, for", "on, to"],
+    "o_hi": ["for, to", "to, for", "to, to", "with, for", "on, to"],
+    "a": 2,
+    "x": "Correct Answer: (C) to, to (Fixed Preposition Compositions: Detrimental TO, Beneficial TO)"
+  }
+];
+
+let current=0;
+let currentSecIdx=0;
+let currentLang='en';
+let answers=Array(Q.length).fill(null);
+let reviews=Array(Q.length).fill(false);
+let visited=Array(Q.length).fill(false); visited[0]=true;
+let timeSpent=Array(Q.length).fill(0);
+let remainingSeconds=1200; 
+let paused=true, submitted=false;
+let timerInterval=null;
+
+const $=id=>document.getElementById(id);
+
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+
+function formatTime(sec){
+  const m=Math.floor(sec/60), s=sec%60;
+  return m>0 ? `${m}m ${s}s` : `${s}s`;
+}
+
+function getParentQuestion(idx){
+  for(let i=idx; i>=0; i--){
+    if(Q[i].stem || Q[i].body) return Q[i];
+  }
+  return Q[idx];
+}
+
+function renderQ(){
+  const d=Q[current];
+  const p=getParentQuestion(current);
+  $("qno").textContent=current+1;
+  
+  for(let s=0; s<sections.length; s++){
+    if(current >= sections[s].start && current <= sections[s].end){
+      currentSecIdx = s;
+      break;
+    }
+  }
+  $("currentSectionName").textContent = sections[currentSecIdx].name;
+
+  const stemText = currentLang === 'hi' ? (p.stem_hi || p.stem) : p.stem;
+  const bodyText = currentLang === 'hi' ? (p.body_hi || p.body) : p.body;
+  const qText = currentLang === 'hi' ? (d.q_hi || d.q) : d.q;
+  const optionsList = currentLang === 'hi' ? (d.o_hi || d.o) : d.o;
+
+  if(p && (stemText || bodyText)){
+    $("leftPane").innerHTML =
+      `<div class="question"><div class="dir">${escapeHtml(stemText||"Directions:")}</div><p>${escapeHtml(bodyText||"")}</p></div>`;
+  } else {
+    $("leftPane").innerHTML =
+      `<div class="question"><div class="dir">Directions:</div><p>Answer the following question.</p></div>`;
+  }
+
+  $("rightPane").innerHTML =
+    `<div class="prompt">${escapeHtml(qText)}</div>` +
+    optionsList.map((opt,n)=>`<label class="option"><input type="radio" name="answer" value="${n}" ${answers[current]===n?"checked":""}><span>${String.fromCharCode(65+n)}.</span><span>${escapeHtml(opt)}</span></label>`).join("");
+  
+  buildPalette();
+  updateStats();
+  $("leftPane").scrollTop=0; $("rightPane").scrollTop=0;
+}
+
+$("langSelect").onchange = (e) => {
+  currentLang = e.target.value;
+  renderQ();
+};
+
+function buildPalette(){
+  const p=$("palette"); p.innerHTML="";
+  const sec = sections[currentSecIdx];
+  for(let n=sec.start; n<=sec.end; n++){
+    const b=document.createElement("button");
+    b.className="pbtn";
+    if(n===current)b.classList.add("current");
+    else if(answers[n]!==null && reviews[n])b.classList.add("ar");
+    else if(reviews[n])b.classList.add("review");
+    else if(answers[n]!==null)b.classList.add("answered");
+    else if(visited[n])b.classList.add("unanswered");
+    
+    b.textContent=n+1;
+    b.onclick=((idx)=>()=>go(idx))(n);
+    p.appendChild(b);
+  }
+}
+
+function updateStats(){
+  const a=answers.filter(v=>v!==null).length;
+  const m=reviews.filter(Boolean).length;
+  const ar=answers.filter((v,n)=>v!==null&&reviews[n]).length;
+  const nv=visited.filter(v=>!v).length;
+  $("sAns").textContent=a; $("sMark").textContent=m; $("sVisit").textContent=nv; $("sAR").textContent=ar+"✓"; $("sNA").textContent=Q.length-a;
+}
+
+function choose(v){
+  answers[current]=v; visited[current]=true; buildPalette(); updateStats();
+}
+
+$("rightPane").addEventListener("change",e=>{if(e.target.name==="answer")choose(Number(e.target.value))});
+
+function go(n){current=n;visited[n]=true;renderQ();}
+
+function next(){
+  const sec = sections[currentSecIdx];
+  if(current < sec.end){
+    current++; visited[current]=true; renderQ();
+  } else if(currentSecIdx < sections.length - 1){
+    currentSecIdx++;
+    current = sections[currentSecIdx].start;
+    visited[current] = true;
+    renderQ();
+  } else {
+    openSubmit();
+  }
+}
+
+function prev(){
+  const sec = sections[currentSecIdx];
+  if(current > sec.start){
+    current--; visited[current]=true; renderQ();
+  } else if(currentSecIdx > 0){
+    currentSecIdx--;
+    current = sections[currentSecIdx].end;
+    visited[current] = true;
+    renderQ();
+  }
+}
+
+$("saveNext").onclick=next;
+$("prevBtn").onclick=prev;
+$("reviewNext").onclick=()=>{reviews[current]=true;next()};
+$("clear").onclick=()=>{answers[current]=null;renderQ()};
+$("qpBtn").onclick=()=>alert("English Language Mock Test  Day 1: " + Q.length + " Questions total.");
+$("instBtn").onclick=()=>alert("Use the palette to navigate between questions seamlessly.");
+
+$("pause").onclick=()=>{
+  paused=!paused;
+  $("pause").textContent=paused?"Resume Test":"Pause Test";
+};
+
+function openSubmit(){
+  const a=answers.filter(v=>v!==null).length;
+  $("modalText").textContent=`You have answered ${a} of ${Q.length} questions. Submit the test to see your detailed breakdown.`;
+  $("modal").style.display="flex";
+}
+
+$("submit").onclick=openSubmit;
+$("cancel").onclick=()=>$("modal").style.display="none";
+$("confirm").onclick=()=>{ $("modal").style.display="none"; finish(); };
+
+function finish(){
+  submitted=true;
+  if(timerInterval) clearInterval(timerInterval);
+  
+  let correct=0,wrong=0,skip=0;
+  answers.forEach((v,n)=>{if(v===null)skip++;else if(v===Q[n].a)correct++;else wrong++});
+  const score=(correct-0.25*wrong).toFixed(2);
+  $("ascore").textContent=score; $("acorrect").textContent=correct; $("awrong").textContent=wrong; $("askip").textContent=skip;
+  $("accuracy").textContent=(correct+wrong?Math.round(correct/(correct+wrong)*100):0)+"%";
+
+  $("analysisBody").innerHTML=Q.map((d,n)=>{
+    const v=answers[n];
+    const opts = currentLang === 'hi' ? (d.o_hi || d.o) : d.o;
+    const qText = currentLang === 'hi' ? (d.q_hi || d.q) : d.q;
+    const your=v===null?"Not Attempted":opts[v];
+    const corr=opts[d.a];
+    const cls=v===null?"n":v===d.a?"c":"w";
+    const text=v===null?"Unattempted":v===d.a?"Correct":"Wrong";
+    
+    return `<tr>
+      <td>${n+1}</td>
+      <td><b>${formatTime(timeSpent[n])}</b></td>
+      <td>${escapeHtml(qText)}</td>
+      <td>${escapeHtml(your)}</td>
+      <td>${escapeHtml(corr)}</td>
+      <td><span class="pill ${cls}">${text}</span></td>
+      <td>${escapeHtml(d.x)}</td>
+    </tr>`;
+  }).join("");
+
+  $("analysis").style.display="block";
+  $("submit").style.display="none";
+}
+
+function resetTest(){
+  submitted=false;
+  paused=true;
+  current=0;
+  currentSecIdx=0;
+  remainingSeconds=1200;
+  answers=Array(Q.length).fill(null);
+  reviews=Array(Q.length).fill(false);
+  visited=Array(Q.length).fill(false);
+  timeSpent=Array(Q.length).fill(0);
+  visited[0]=true;
+
+  $("timer").textContent="20 : 00";
+  $("pause").textContent="Start Test";
+  $("analysis").style.display="none";
+  $("submit").style.display="block";
+  $("modal").style.display="none";
+  renderQ();
+}
+
+$("resetFromAnalysis").onclick=resetTest;
+
+timerInterval = setInterval(()=>{
+  if(submitted||paused)return;
+  if(remainingSeconds > 0){
+    remainingSeconds--;
+    timeSpent[current]++;
+  } else {
+    finish();
+    return;
+  }
+
+  const m=Math.floor(remainingSeconds/60), s=remainingSeconds%60;
+  $("timer").textContent=String(m).padStart(2,"0")+" : "+String(s).padStart(2,"0");
+},1000);
+
+renderQ();
+</script>
+</body>
+</html>
