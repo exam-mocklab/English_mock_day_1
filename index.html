@@ -41,7 +41,7 @@ body{overflow:auto}
   <div class="topright"><div class="time">Time Remaining <strong id="timer">20 : 00</strong></div><div class="pause" id="pause">Start Test</div></div>
 </header>
 
-<div class="app">
+<div class="app" id="appLayout">
 <main class="main">
   <div class="questionhead">
     <div class="qtitle">Question No. <span id="qno">1</span></div>
@@ -97,7 +97,7 @@ body{overflow:auto}
   </section>
 </main>
 
-<aside class="side">
+<aside class="side" id="sidePalette">
   <div class="hello">Hello, Candidate</div>
   <div class="summary">
     <div><span class="bubble" id="sAns">0</span><div>Answered</div></div>
@@ -670,6 +670,12 @@ function finish(){
   submitted=true;
   if(timerInterval) clearInterval(timerInterval);
   
+  // 👉 FIX: Hide question palette and expand analysis section to full screen on submit
+  const sidePalette = $("sidePalette");
+  const appLayout = $("appLayout");
+  if(sidePalette) sidePalette.style.display = "none";
+  if(appLayout) appLayout.style.gridTemplateColumns = "1fr";
+
   let correct=0,wrong=0,skip=0;
   answers.forEach((v,n)=>{if(v===null)skip++;else if(v===Q[n].a)correct++;else wrong++});
   const score=(correct-0.25*wrong).toFixed(2);
@@ -711,6 +717,12 @@ function resetTest(){
   visited=Array(Q.length).fill(false);
   timeSpent=Array(Q.length).fill(0);
   visited[0]=true;
+
+  // Restore palette view on reset
+  const sidePalette = $("sidePalette");
+  const appLayout = $("appLayout");
+  if(sidePalette) sidePalette.style.display = "flex";
+  if(appLayout) appLayout.style.gridTemplateColumns = "minmax(0,1fr) 377px";
 
   $("timer").textContent="20 : 00";
   $("pause").textContent="Start Test";
